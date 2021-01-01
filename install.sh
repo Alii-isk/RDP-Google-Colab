@@ -20,7 +20,8 @@ printf """$c$b
     | |    / _ \| |/ _\` | '_ \    |  __  |/ _\` |/ __| |/ / __|
     | |___| (_) | | (_| | |_) |   | |  | | (_| | (__|   <\__ \\
      \_____\___/|_|\__,_|_.__/    |_|  |_|\__,_|\___|_|\_\___/ 
-    $r  By Pradyumna Krishna Â© 2020         
+    $r  By Pradyumna Krishna Â© 2020 $c Edited by https://fb.com/thuong.hai.581 (v3)
+      Github : https://github.com/PradyumnaKrishna/Colab-Hacks          
 $endc$enda""";
 
 
@@ -29,7 +30,7 @@ $endc$enda""";
 
 # Creation of user
 printf "\n\nCreating user " >&2
-if sudo useradd -m rdp &> /dev/null
+if sudo useradd -m user &> /dev/null
 then
   printf "\ruser created $endc$enda\n" >&2
 else
@@ -38,10 +39,10 @@ else
 fi
 
 # Add user to sudo group
-sudo adduser rdp sudo
+sudo adduser user sudo
 
-# Set password of user to 'rdpuser'
-echo 'rdp:rdpuser' | sudo chpasswd
+# Set password of user to 'root'
+echo 'user:root' | sudo chpasswd
 
 # Change default shell from sh to bash
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
@@ -143,12 +144,12 @@ printf "\n$g$b    Installation Completed $endc$enda\n\n" >&2
 
 
 # Adding user to CRP group
-sudo adduser rdp chrome-remote-desktop
+sudo adduser user chrome-remote-desktop
 
 # Finishing Work
 printf '\nVisit http://remotedesktop.google.com/headless and Copy the command after authentication\n'
 read -p "Paste Command: " CRP
-su - rdp -c """$CRP"""
+su - user -c """$CRP"""
 
-printf "\n$c$b I hope everthing done correctly if mistakenly wrote wrong command or pin, Rerun the current box or run command 'su - rdp -c '<CRP Command Here>' $endc$enda\n" >&2
+printf "\n$c$b I hope everthing done correctly if mistakenly wrote wrong command or pin, Rerun the current box or run command 'su - user -c '<CRP Command Here>' $endc$enda\n" >&2
 printf "\n$g$b Finished Succesfully$endc$enda"
