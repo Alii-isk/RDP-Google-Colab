@@ -1,4 +1,4 @@
-#! /usr/local/bin
+#! /usr/local/bin/bash
 printf "Installing RDP Be Patience... " >&2
 {
 sudo useradd -m rdp
